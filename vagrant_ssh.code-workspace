@@ -1,0 +1,8 @@
+{
+	"folders": [
+		{
+			"uri": "vscode-remote://ssh-remote+default/home/vagrant/backend"
+		}
+	],
+	"remoteAuthority": "ssh-remote+default"
+}
