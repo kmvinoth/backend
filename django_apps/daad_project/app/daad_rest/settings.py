@@ -11,22 +11,25 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import environ
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+# reading .env file
+environ.Env.read_env()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# False if not in os.environ
+DEBUG = env('DEBUG')
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'hfkqb@1eg&azs5b@u8ma(ktb!&*o4wo_i7hjp*9!3o=sb$u)uz'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# Raises django's ImproperlyConfigured exception if SECRET_KEY not in os.environ
+SECRET_KEY = env('SECRET_KEY')
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
