@@ -4,3 +4,9 @@ ubuntu-bionic-18.04-cloudimg-console.log
 
 # Python
 venv/
+db.sqlite3
+__pycache__/
+
+
+# .env files
+.env
